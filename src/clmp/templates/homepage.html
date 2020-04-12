@@ -9,10 +9,10 @@
 {% if user.is_authenticated %}
     <p>Username: {{ user.username }}</p>
     <p><a href="{% url 'logout' %}">Logoff</a></p>
-    <h1>This is the home page</h1>
-    <p>Welcome to CLMP</p>
 {% else %}
-    <a href="{% url 'login' %}">Login</a>
+    <p><a href="{% url 'login' %}">Login</a></p>
 {% endif %}
+<h1>This is the home page</h1>
+    <p>Welcome to CLMP</p>
 </body>
 </html>
