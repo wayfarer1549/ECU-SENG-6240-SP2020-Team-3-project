@@ -6,7 +6,7 @@
   {% for contract in contracts %}
   <div class="contract">
     <h2><a href="{% url 'contracts:detail' slug=contract.slug %}">{{ contract.title }}</a></h2>
-    <p>{{ contract.body }}</p>
+    <!-- <p>{{ contract.body }}</p> -->
     <p>{{ contract.date }}</p>
   </div>
   {% endfor %}

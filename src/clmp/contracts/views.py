@@ -7,7 +7,9 @@ def contract_list(request):
     return render(request, 'contracts/contract_list.html', { 'contracts': contracts })
 
 def contract_detail(request, slug):
-    return HttpResponse(slug)
+    # return HttpResponse(slug)
+    contract = Contract.objects.get(slug=slug)
+    return render(request, 'contracts/contract_detail.html', { 'contract': contract })
 
 # add login required here; redirect if not logged in
 def contract_create(request):
