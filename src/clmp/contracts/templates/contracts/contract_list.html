@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contracts</title>
+</head>
+<body>
+    <h1>Contract List</h1>
+    <div class="contracts">
+        {% for contract in contracts %}
+        <div class="contract">
+            <h2><a href="#">{{ contract.title }}</a></h2>
+                <p>{{ contract.body }}</p>
+                <p>{{ contract.date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
