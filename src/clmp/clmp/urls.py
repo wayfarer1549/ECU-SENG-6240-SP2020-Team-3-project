@@ -20,6 +20,7 @@ from . import views
 urlpatterns = [
     # path('', views.index, name='index'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('contracts/', include('contracts.urls')),
     path('about/', views.about),
     path('', views.homepage),
