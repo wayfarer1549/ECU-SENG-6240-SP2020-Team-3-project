@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Contract
 from django.http import HttpResponse
+from . import forms
 
 def contract_list(request):
     contracts = Contract.objects.all().order_by('date')
@@ -13,4 +14,11 @@ def contract_detail(request, slug):
 
 # add login required here; redirect if not logged in
 def contract_create(request):
-    return render(request, 'contracts/contracts_create.html')
+    if request.method == 'POST':
+        form = forms.CreateContract(request.POST)
+        if form.is_valid():
+            # save contract to the db
+            return redirect('contracts:list')
+    else:
+        form = forms.CreateContract()
+    return render(request, 'contracts/contract_create.html', {'form': form })
