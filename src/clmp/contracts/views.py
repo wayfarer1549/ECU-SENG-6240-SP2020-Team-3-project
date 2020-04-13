@@ -18,6 +18,10 @@ def contract_create(request):
         form = forms.CreateContract(request.POST)
         if form.is_valid():
             # save contract to the db
+            # save it as an instance, don't immediately commit the save
+            instance = form.save(commit=False)
+            instance.participant = request.user
+            instance.save()
             return redirect('contracts:list')
     else:
         form = forms.CreateContract()
