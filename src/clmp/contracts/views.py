@@ -27,9 +27,10 @@ def contract_create(request):
         form = forms.CreateContract()
     return render(request, 'contracts/contract_create.html', {'form': form })
 
-def contract_approve(request):
+def contract_approve(request, slug):
     # return HttpResponse(slug)
-    # contract = Contract.objects.get(slug=slug)
+    contract = Contract.objects.get(slug=slug)
     # if request.method == 'POST':
     #     contract.contractStatus = "Approved by " + request.user
-    return render(request, 'contracts/contract_approve.html')
+    # return render(request, 'contracts/contract_approve.html', {'contract': contract})
+    return HttpResponse(contract)
