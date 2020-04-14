@@ -8,6 +8,7 @@ class Contract(models.Model):
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     participant = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    contractStatus = models.TextField()
 
     def __str__(self):
         return self.title
