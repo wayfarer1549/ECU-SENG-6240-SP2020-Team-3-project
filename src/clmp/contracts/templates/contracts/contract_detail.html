@@ -7,6 +7,7 @@
         <p>{{ contract.body }}</p>
         <p>contract participant: {{ contract.participant }}</p>
         <p>{{ contract.date }}</p>
+        <p>{{ contract.contractStatus }}</p>
         <p><a href="{% url 'contracts:approve' slug=contract.slug %}">Go To Contract Approval</a></p>
     </div>
 </div>

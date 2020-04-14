@@ -10,6 +10,8 @@ def contract_list(request):
 def contract_detail(request, slug):
     # return HttpResponse(slug)
     contract = Contract.objects.get(slug=slug)
+    if request.method == 'POST':
+        contract.contractStatus = "Approved by " + str(request.user)
     return render(request, 'contracts/contract_detail.html', { 'contract': contract })
 
 # add login required here; redirect if not logged in
@@ -30,7 +32,5 @@ def contract_create(request):
 def contract_approve(request, slug):
     # return HttpResponse(slug)
     contract = Contract.objects.get(slug=slug)
-    # if request.method == 'POST':
-    #     contract.contractStatus = "Approved by " + request.user
-    # return render(request, 'contracts/contract_approve.html', {'contract': contract})
-    return HttpResponse(contract)
+    return render(request, 'contracts/contract_approve.html', {'contract': contract})
+    

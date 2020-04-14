@@ -1,18 +1,17 @@
 {% extends 'base_layout.html' %} 
 
 {% block content %}
-<h1>Test</h1>
-<!-- <div class="contract-approve">
+<h1>Click Approve to Complete Contract Approval</h1>
+<div class="contract-approve">
     <div class="contract">
         <h2>{{ contract.title }}</h2>
         <p>{{ contract.body }}</p>
         <p>contract participant: {{ contract.participant }}</p>
         <p>{{ contract.date }}</p>
-        <form class="site-form" action="{% url 'contracts:' %}" method="post">
+        <form class="site-form" action="{% url 'contracts:detail' slug=contract.slug %}" method="post">
             {% csrf_token %}
-            <input type="submit" value="approve">
+            <input type="submit" value="Complete Approval">
         </form>
     </div>
-</div> -->
-
+</div>
 {% endblock %}
