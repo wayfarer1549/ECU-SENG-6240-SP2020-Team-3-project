@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from .models import Contract
-from django.http import HttpResponse
 from . import forms
+
 
 def contract_list(request):
     contracts = Contract.objects.all().order_by('date')
@@ -10,6 +11,9 @@ def contract_list(request):
 def contract_detail(request, slug):
     # return HttpResponse(slug)
     contract = Contract.objects.get(slug=slug)
+    if request.method == 'POST' and str(request.user) not in contract.contractStatus :
+        contract.contractStatus = "Approved by " + str(request.user) + ": " + str(timezone.now())
+        contract.save()
     return render(request, 'contracts/contract_detail.html', { 'contract': contract })
 
 # add login required here; redirect if not logged in
@@ -26,3 +30,8 @@ def contract_create(request):
     else:
         form = forms.CreateContract()
     return render(request, 'contracts/contract_create.html', {'form': form })
+
+def contract_approve(request, slug):
+    contract = Contract.objects.get(slug=slug)
+    return render(request, 'contracts/contract_approve.html', {'contract': contract})
+    
