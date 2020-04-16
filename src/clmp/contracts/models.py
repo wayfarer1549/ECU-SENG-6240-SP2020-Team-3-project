@@ -14,3 +14,8 @@ class Contract(models.Model):
 
     def snippet(self):
         return self.body[:50]
+
+class OfficialIdentity(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    SocialSecurityNumber = models.CharField(max_length=15)
+    

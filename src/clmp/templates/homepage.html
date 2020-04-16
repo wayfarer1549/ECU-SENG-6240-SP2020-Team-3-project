@@ -8,6 +8,8 @@
 <body>
 {% if user.is_authenticated %}
     <p>Username: {{ user.username }}</p>
+    <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Social Security: {{ user.officialidentity.SocialSecurityNumber }}</p>
     <p><a href="{% url 'logout' %}">Logoff</a></p>
 {% else %}
     <p><a href="{% url 'login' %}">Login</a></p>
