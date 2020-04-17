@@ -15,8 +15,10 @@ def contract_detail(request, slug):
     # return HttpResponse(slug)
     contract = Contract.objects.get(slug=slug)
     if request.method == 'POST' and str(request.user) not in contract.contractStatus :
-        contract.contractStatus = "Approved by " + str(request.user) + ": " + str(timezone.now())
-        contract.save()
+        u = User.objects.get(username=request.user)
+        if validate_social_security.IsTrue(u.officialidentity.SocialSecurityNumber):
+            contract.contractStatus = "Approved by " + str(request.user) + ": " + str(timezone.now())
+            contract.save()
     return render(request, 'contracts/contract_detail.html', { 'contract': contract })
 
 # add login required here; redirect if not logged in
