@@ -9,20 +9,20 @@
         <hr class="my-4">
         <p>CLMP's goal is to make contracting easy, seamless, and accessible to all individuals.</p>
         <p class="lead">
-            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
         </p>
     </div>
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="static/helloquence-OQMZwNd3ThU-unsplash.jpg" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">Login To Your Account</h5>
+            {% if user.is_authenticated %}
+            <h5 class="card-title">Logout When Complete</h5>
             <p class="card-text">
-                {% if user.is_authenticated %}
                 <p>Username: {{ user.username }}</p>
-                <!-- <a><a href="{% url 'logout' %}">Logoff</a></p> -->
                 <a href="{% url 'logout' %}" class="btn btn-primary">Logoff</a>
                 {% else %}
-                <!-- <p><a href="{% url 'login' %}">Login</a></p> -->
+                <h5 class="card-title">Login to Your Account</h5>
+            <p class="card-text">
+                <p>Click below to login</p>
                 <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
                 {% endif %}
             </p>
