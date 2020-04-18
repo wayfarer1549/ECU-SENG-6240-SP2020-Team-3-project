@@ -11,12 +11,12 @@
         <p class="lead">
         </p>
     </div>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="static/helloquence-OQMZwNd3ThU-unsplash.jpg" alt="Card image cap">
+    <div class="card mx-auto">
         <div class="card-body">
             {% if user.is_authenticated %}
-            <h5 class="card-title">Logout When Complete</h5>
+            <h5 class="card-title">Welcome back!</h5>
             <p class="card-text">
+                <p>Logout When Complete</p>
                 <p>Username: {{ user.username }}</p>
                 <a href="{% url 'logout' %}" class="btn btn-primary">Logoff</a>
                 {% else %}
