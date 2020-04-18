@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">CLMP</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'homepage' %}">CLMP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,9 +25,26 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <!-- If the user is authenticated, show these links -->
+                {% if user.is_authenticated %}
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contracts:list' %}">Contract List <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+                <!-- If the user isn't authenticated, show these links -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
@@ -53,7 +70,7 @@
             </form> -->
         </div>
     </nav>
-    <div class="jumbotron">
+    <div class="jumbotron" style="background:#A9DFBF">
         <h1 class="display-4">Welcome to CLMP!</h1>
         <p class="lead">The Contract Lifecycle Management Platform (CLMP) allows individuals to form contractual
             obligations free of centralized organization.

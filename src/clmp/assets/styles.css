@@ -4,6 +4,10 @@ body {
     margin: 10px 20px 10px 20px;
 }
 
+.jumbotron {
+    background: #A9DFBF;
+}
+
 .wrapper {
     margin: 10px 20px 10px 20px;
 }
