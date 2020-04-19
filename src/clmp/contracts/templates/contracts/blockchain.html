@@ -1,0 +1,10 @@
+{% extends 'base_layout.html' %} 
+
+{% block content %}
+<div class="contract-detail">
+    <h2>Blockchain</h2>
+    {{chain}}
+    <p><a href="{% url 'contracts:list' %}">Go To Contract List</a></p>
+</div>
+
+{% endblock %}

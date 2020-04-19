@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Contract List</h1>
+
 <div class="contracts">
   {% for contract in contracts %}
   <div class="contract">
@@ -12,4 +13,5 @@
   </div>
   {% endfor %}
 </div>
+<p><a href="{% url 'contracts:get_chain' %}">View Blockchain</a></p>
 {% endblock %}
