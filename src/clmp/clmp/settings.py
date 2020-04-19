@@ -122,6 +122,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'assets'),
+    os.path.john(BASE_DIR, 'static'),
 ]
 
 LOGIN_REDIRECT_URL = 'homepage'
@@ -131,7 +132,3 @@ LOGOUT_REDIRECT_URL='homepage'
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
-
-# Added for Heroku deploy
-PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
