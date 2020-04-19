@@ -1,0 +1,12 @@
+{% extends 'base_layout.html' %} 
+
+{% block content %}
+<h1>Blockchain</h1>
+<div class="blockchain">
+  {% if blockchain %}
+  <div class="contract">
+    <p>block: {{ blockchain }}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

@@ -8,5 +8,6 @@ urlpatterns = [
     path('create/', views.contract_create, name="create"),
     path('approve/<slug>/', views.contract_approve, name="approve"),
     re_path('(?P<slug>[\w-]+)/', views.contract_detail, name="detail"),
+    path('blockchain', views.get_blockchain)
 
 ]

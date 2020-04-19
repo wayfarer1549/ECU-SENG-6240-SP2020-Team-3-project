@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Contract
+from django.http import HttpResponse
+
+from .models import Contract, MinimalBlock, MinimalChain
 from . import forms
 
 
@@ -34,4 +36,6 @@ def contract_create(request):
 def contract_approve(request, slug):
     contract = Contract.objects.get(slug=slug)
     return render(request, 'contracts/contract_approve.html', {'contract': contract})
-    
+
+def get_blockchain(request):
+    return render(request, 'blockchain.html', {'blockchain': blockchain})
