@@ -1,2 +1,5 @@
 
 Django==3.0.4
+
+import django_heroku
+django_heroku.settings(locals())
