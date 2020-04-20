@@ -132,6 +132,6 @@ LOGOUT_REDIRECT_URL='homepage'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
-# Configure Django App for Heroku.
+# Configure Django App for Heroku
 import django_heroku
 django_heroku.settings(locals())
