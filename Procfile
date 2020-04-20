@@ -1,1 +1,1 @@
-clmp:gunicorn clmp.wsgi
+web:gunicorn clmp.wsgi
