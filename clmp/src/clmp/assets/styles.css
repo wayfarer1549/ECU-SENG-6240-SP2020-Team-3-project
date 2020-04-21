@@ -1,0 +1,20 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #D5F5E3;
+    margin: 10px 20px 10px 20px;
+}
+
+.wrapper {
+    margin: 10px 20px 10px 20px;
+}
+
+.site-form {
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.site-form input, .site-form textarea {
+    display: block;
+    margin: 20px 0 0px 0;
+    padding: 10px;
+}
