@@ -17,15 +17,48 @@
 </head>
 
 <body>
-    <header class="header-wrapper">
-        <h1>Contract Lifecycle Management Platform (CLMP)</h1>
-    </header>
-    <div class="wrapper">
-        </div><a href="{% url 'contracts:list' %}">Contracts</a></h1>
-        {% block content %}
-        {% endblock %}
-    </div>
-    <!-- load bootstrap JS -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'homepage' %}">CLMP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- If the user is authenticated, show these links -->
+                {% if user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contracts:list' %}">Contract List <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contracts:create' %}">Create Contract <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+                <!-- If the user isn't authenticated, show these links -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'about' %}">About Us <span class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+    <!-- <h1>This is the home page</h1>
+    <p>Welcome to CLMP</p> -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
