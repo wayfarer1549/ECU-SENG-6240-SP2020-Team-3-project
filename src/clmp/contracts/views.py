@@ -22,7 +22,8 @@ def contract_detail(request, slug):
         if validate_social_security.IsTrue(u.officialidentity.SocialSecurityNumber):
             contract.contractStatus = "Approved by " + str(request.user) + ": " + str(timezone.now())
             contract.save()
-            request.session['contract'] = contract
+            request.session['contract_status'] = str(contract.contractStatus)
+            request.session['slug'] = str(slug)
             return redirect('contracts:mine_block')
     return render(request, 'contracts/contract_detail.html', { 'contract': contract })
 
@@ -49,17 +50,17 @@ def contract_approve(request, slug):
 
 
 class Blockchain:
-
     def __init__(self):
         self.chain = []
-        self.create_block(nonce = 1, previous_hash = '0', contract={})
+        self.create_block(nonce = 1, previous_hash = '0', slug='', contract_status='')
 
-    def create_block(self, nonce, previous_hash, contract):
+    def create_block(self, nonce, previous_hash, slug, contract_status):
         block = {'index': len(self.chain) + 1,
                  'timestamp': str(datetime.datetime.now()),
                  'nonce': nonce,
                  'previous_hash': previous_hash,
-                 'contract': contract}
+                 'contract': slug,
+                 'contract_status': contract_status}
         self.chain.append(block)
         return block
 
@@ -104,18 +105,20 @@ blockchain = Blockchain()
 # Mining a new block
 def mine_block(request):
     if request.method == 'GET':
-        data = request.GET
+        contract_status = request.session['contract_status']
+        slug = request.session['slug']
         previous_block = blockchain.get_previous_block()
         previous_nonce = previous_block['nonce']
         nonce = blockchain.proof_of_work(previous_nonce)
         previous_hash = blockchain.hash(previous_block)
-        block = blockchain.create_block(nonce, previous_hash, data)
-        response = {'message': 'Congratulations, you just mined a block!',
+        block = blockchain.create_block(nonce, previous_hash, slug, contract_status)
+        response = {'message': 'Congratulations, contract status added to the blockchain!',
                     'index': block['index'],
                     'timestamp': block['timestamp'],
                     'nonce': block['nonce'],
                     'previous_hash': block['previous_hash'],
-                    'contract': data}
+                    'contract': slug,
+                    'contract_status': contract_status}
     return render(request, 'contracts/blockchain.html', {'chain': response })
 
 # Getting the full Blockchain
