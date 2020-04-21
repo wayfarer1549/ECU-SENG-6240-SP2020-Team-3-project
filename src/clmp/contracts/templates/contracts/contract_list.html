@@ -1,17 +1,19 @@
 {% extends 'base_layout.html' %} 
 
 {% block content %}
-<h1>Contract List</h1>
-
-<div class="contracts">
+<div class="jumbotron">
+  <h1 class="display-4">Contract List</h1>
+</div>
   {% for contract in contracts %}
-  <div class="contract">
-    <h2><a href="{% url 'contracts:detail' slug=contract.slug %}">{{ contract.title }}</a></h2>
-    <!-- <p>{{ contract.body }}</p> -->
-    <p>contract participant: {{ contract.participant }}</p>
-    <p>{{ contract.date }}</p>
+  <div class="card contract" style="width: 36rem; margin: 10px 0px 10px 0px;">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'contracts:detail' slug=contract.slug %}">{{ contract.title }}</a></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ contract.date }}</h6>
+      <p class="card-text">contract participant: {{ contract.participant }}</p>
+    </div>
   </div>
   {% endfor %}
 </div>
 <p><a href="{% url 'contracts:get_chain' %}">View Blockchain</a></p>
 {% endblock %}
+
