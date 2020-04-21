@@ -1,13 +1,21 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Create a New Contract</h1>
+</div>
 <div class="create-contract">
-    <h2>Create a New Contract</h2>
-    <form class="site-form" action="{% url 'contracts:create' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="create">
-    </form>
+    <div class="card mx-auto">
+        <div class="card-body">
+          <h5 class="card-title">Create a New Contract</h5>
+          <p class="card-text">Create a new contract by filling in the form fields below.</p>
+          <form class="site-form" action="{% url 'contracts:create' %}" method="post">
+              {% csrf_token %}
+              {{ form }}
+          <button class="btn btn-primary" type="submit">Create</button>
+        </form>
+        </div>
+      </div>
 </div>
 <script src="/static/slugify.js"></script>
 {% endblock %}

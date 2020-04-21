@@ -1,17 +1,19 @@
 {% extends 'base_layout.html' %} 
 
 {% block content %}
-<div class="contract-detail">
-    <div class="contract">
-        <h2>{{ contract.title }}</h2>
-        <p>{{ contract.body }}</p>
-        <p>contract participant: {{ contract.participant }}</p>
-        <p>{{ contract.date }}</p>
-        <p>{{ contract.contractStatus }}</p>
-        {% if contract.contractStatus|length == 0 %}
-        <p><a href="{% url 'contracts:approve' slug=contract.slug %}">Go To Contract Approval</a></p>
-        {% endif %}
-    </div>
+<div class="jumbotron">
+    <h1 class="display-4">Contract Detail</h1>
 </div>
-
+<div class="card contract-detail mx-auto">
+    <div class="card-body contract">
+      <h5 class="card-title">{{ contract.title }}</h5>
+      <p class="card-text">{{ contract.body }}</p>
+      <p>contract participant: {{ contract.participant }}</p>
+      <p>{{ contract.date }}</p>
+      <p>{{ contract.contractStatus }}</p>
+      {% if contract.contractStatus|length == 0 %}
+      <p><a href="{% url 'contracts:approve' slug=contract.slug %}">Go To Contract Approval</a></p>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}
