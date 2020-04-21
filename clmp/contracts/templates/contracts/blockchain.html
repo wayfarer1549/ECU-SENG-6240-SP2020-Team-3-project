@@ -1,19 +1,21 @@
-{% extends 'base_layout.html' %} 
+{% extends 'base_layout.html' %}
 
 {% block content %}
-<div class="contract-detail">
-    <h2>Blockchain</h2>
-    {{ chain.message }}
-    {% for block in chain.chain %}
-    <div class="card contract" style="width: 36rem; margin: 10px 0px 10px 0px;">
-        <div class="card-body">
-          <h5 class="card-title">Contract: {{ block.contract }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Status: {{ block.contract_status }}</h6>
-          <p class="card-text">previous block hash: {{ block.previous_hash }}</p>
-        </div>
-      </div>
-    {% endfor %}
-    <p><a href="{% url 'contracts:list' %}">Go To Contract List</a></p>
+<div class="jumbotron">
+  <h1 class="display-4">Blockchain</h1>
 </div>
-
+<div class="contract-detail">
+  <!-- <h2>Blockchain</h2> -->
+  {{ chain.message }}
+  {% for block in chain.chain %}
+  <div class="card contract" style="width: 36rem; margin: 10px 0px 10px 0px;">
+    <div class="card-body">
+      <h5 class="card-title">Contract: {{ block.contract }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Status: {{ block.contract_status }}</h6>
+      <p class="card-text">previous block hash: {{ block.previous_hash }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<p><a href="{% url 'contracts:list' %}">Go To Contract List</a></p>
 {% endblock %}
