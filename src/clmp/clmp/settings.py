@@ -133,6 +133,7 @@ LOGOUT_REDIRECT_URL='homepage'
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
-# Configure Django App for Heroku
-# import django_heroku
-# django_heroku.settings(locals())
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
