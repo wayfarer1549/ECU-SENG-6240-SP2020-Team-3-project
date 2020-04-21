@@ -18,6 +18,8 @@
             <p class="card-text">
                 <p>Logout When Complete</p>
                 <p>Username: {{ user.username }}</p>
+                <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
+                <p>Social Security: {{ user.officialidentity.SocialSecurityNumber }}</p>
                 <a href="{% url 'logout' %}" class="btn btn-primary">Logoff</a>
                 {% else %}
                 <h5 class="card-title">Login to Your Account</h5>
