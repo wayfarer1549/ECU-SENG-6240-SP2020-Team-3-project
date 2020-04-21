@@ -1,11 +1,26 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
+    /* Margin bottom by footer height */
+    margin-bottom: 120px;
     font-family: 'Roboto', sans-serif;
-    background: #D5F5E3;
+    background: #E8F8F5;
     margin: 10px 20px 10px 20px;
+}
+
+.jumbotron {
+    background: #A9DFBF;
 }
 
 .wrapper {
     margin: 10px 20px 10px 20px;
+}
+
+.card {
+    margin: 10px 0px 10px 0px;
 }
 
 .site-form {

@@ -1,20 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-</head>
-<body>
-{% if user.is_authenticated %}
-    <p>Username: {{ user.username }}</p>
-    <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
-    <p>Social Security: {{ user.officialidentity.SocialSecurityNumber }}</p>
-    <p><a href="{% url 'logout' %}">Logoff</a></p>
-{% else %}
-    <p><a href="{% url 'login' %}">Login</a></p>
-{% endif %}
-<h1>This is the home page</h1>
-    <p>Welcome to CLMP</p>
-</body>
-</html>
+{% extends 'base_layout.html' %} 
+
+    {% block content %}
+    <div class="jumbotron" style="background:#A9DFBF">
+        <h1 class="display-4">Welcome to CLMP!</h1>
+        <p class="lead">The Contract Lifecycle Management Platform (CLMP) allows individuals to form contractual
+            obligations free of centralized organization.
+        </p>
+        <hr class="my-4">
+        <p>CLMP's goal is to make contracting easy, seamless, and accessible to all individuals.</p>
+        <p class="lead">
+        </p>
+    </div>
+    <div class="card mx-auto">
+        <div class="card-body">
+            {% if user.is_authenticated %}
+            <h5 class="card-title">Welcome back!</h5>
+            <p class="card-text">
+                <p>Logout When Complete</p>
+                <p>Username: {{ user.username }}</p>
+                <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>
+                <p>Social Security: {{ user.officialidentity.SocialSecurityNumber }}</p>
+                <a href="{% url 'logout' %}" class="btn btn-primary">Logoff</a>
+                {% else %}
+                <h5 class="card-title">Login to Your Account</h5>
+            <p class="card-text">
+                <p>Click below to login</p>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    {% endblock %}

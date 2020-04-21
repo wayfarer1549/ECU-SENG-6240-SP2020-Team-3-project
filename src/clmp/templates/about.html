@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <h1>About Us</h1>
-    <p>About CLMP</p>
-</body>
-</html>
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">About Us</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+<div class="card mx-auto">
+    <div class="card-body">
+        <h5 class="card-title">Motivation for CLMP</h5>
+        <p class="card-text">The idea of a social contract has been at the heart of society since the early formations
+            of cities and governments.<br><br>Whether explicit or implicit, these agreements have formed the basis for modern
+            political and economic development.</p>
+    </div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="card mx-auto">
+    <div class="card-body">
+      <h5 class="card-title">Our Goal</h5>
+      <p class="card-text">Technological advancements in computing power and resource access has created opportunities for more
+        decentralized organizations, and has opened the door for an innovation in contractual agreements.<br><br>
+        Our goal will be to make contracting easy, seamless, and accessible to all individuals.</p>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
