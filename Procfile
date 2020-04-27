@@ -1,1 +1,1 @@
-web: gunicorn src.clmp:clmp --log-file -
+web: gunicorn --pythonpath src.clmp clmp.wsgi --log-file -
