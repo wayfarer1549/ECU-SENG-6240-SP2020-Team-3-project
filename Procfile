@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath src.clmp clmp.wsgi --log-file -
+web: gunicorn ECU-SENG-6240-SP2020-Team-3-project.src.clmp:clmp --log-file -
