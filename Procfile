@@ -1,1 +1,0 @@
-web: gunicorn --chdir src/clmp clmp.wsgi --log-file -
