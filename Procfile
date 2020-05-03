@@ -1,1 +1,1 @@
-web: gunicorn clmp:app --log-file -
+web: gunicorn --chdir clmp clmp:app --log-file -
