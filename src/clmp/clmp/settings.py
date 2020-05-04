@@ -25,7 +25,7 @@ SECRET_KEY = 'z&1-+sq42qldmp1&@0yvrv)l0*z&pon=+1!fc1xz3i=-*i!$ld'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nameless-peak-81855.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['polar-eyrie-90569.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
