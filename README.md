@@ -3,7 +3,7 @@ CLMP's goal is to make contracting easy, seamless, and accessible to all individ
 
 The idea of a social contract has been at the heart of society since the early formations of cities and governments.  Whether explicit or implicit, these agreements have formed the basis for modern political and economic development.  Technological advancements in computing power and resource access has created opportunities for more decentralized organizations, and has opened the door for an innovation in contractual agreements.
 
-The deployed application can be viewed at [here](https://polar-eyrie-90569.herokuapp.com/).
+The deployed application can be viewed [here](https://polar-eyrie-90569.herokuapp.com/).
 
 ![CLMPScreenShot](src/clmp/assets/CLMPScrnShot.png)
 
